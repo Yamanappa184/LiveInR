@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Booking Confirmation</h1>
+    <p>Thank you for booking a <span id="room-type"></span> from <span id="checkin-date"></span> to <span id="checkout-date"></span>.</p>
+    <button id="logout">Logout</button>
+  </div>
+
+  <script>
+    // Load booking details from localStorage
+    document.getElementById('room-type').textContent = localStorage.getItem('roomType');
+    document.getElementById('checkin-date').textContent = localStorage.getItem('checkin');
+    document.getElementById('checkout-date').textContent = localStorage.getItem('checkout');
+
+    // Clear localStorage and redirect to sign-in page
+    document.getElementById('logout').addEventListener('click', function() {
+      localStorage.clear();
+      window.location.href = 'index.html'; // Redirect to sign-in page
+    });
+  </script>
+</body>
+</html>
